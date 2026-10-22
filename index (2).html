@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Andini 🤍</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        .bg-custom { background: linear-gradient(135deg, #3b82f6 0%, #ec4899 100%); }
+    </style>
+</head>
+<body class="bg-slate-950 text-white min-h-screen flex items-center justify-center p-4 relative overflow-x-hidden">
+
+    <!-- Efek Cahaya Latar -->
+    <div class="absolute top-10 left-10 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-10 right-10 w-64 h-64 bg-pink-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+    <!-- 1. HALAMAN PEMBUKAAN -->
+    <div id="page-cover" class="z-10 text-center max-w-sm w-full bg-slate-900/90 backdrop-blur-md p-8 rounded-3xl border border-slate-800 shadow-2xl transition-all duration-300">
+        <div class="w-16 h-16 bg-custom mx-auto rounded-2xl flex items-center justify-center text-2xl shadow-lg mb-6 rotate-3">
+            ✨
+        </div>
+        <h1 class="text-xl font-bold mb-2 text-white">
+            Hai, Andini.
+        </h1>
+        <p class="text-slate-400 text-xs mb-6 leading-relaxed">
+            Ada sedikit hal interaktif khusus untuk hari ini. Tekan tombol di bawah untuk mulai ya.
+        </p>
+        <button onclick="gantiHalaman('page-cover', 'page-tebak')" class="w-full py-3 bg-custom text-white font-medium text-sm rounded-xl shadow-md hover:opacity-90 active:scale-95 transition">
+            Mulai 🚀
+        </button>
+    </div>
+
+    <!-- 2. HALAMAN TEBAK-TEBAKAN -->
+    <div id="page-tebak" class="hidden z-10 max-w-sm w-full bg-slate-900/90 backdrop-blur-md p-8 rounded-3xl border border-slate-800 shadow-2xl transition-all duration-300 text-center">
+        <span class="text-xs font-medium text-pink-400 bg-pink-500/10 px-3 py-1 rounded-full border border-pink-500/20">Tebak-Tebakan</span>
+        <h2 class="text-sm font-semibold mt-4 mb-2 text-white">Apa bedanya kacamata sama kamu?</h2>
+        <p class="text-slate-400 text-xs mb-6">Pilih jawaban yang paling benar.</p>
+        
+        <div class="space-y-3">
+            <button onclick="salahTebak()" class="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl text-xs transition">Enggak ada bedanya, sama-sama jelas</button>
+            <button onclick="benerTebak()" class="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl text-xs transition">Kalau kacamata bantu mata melihat, kalau kamu bantu hati jadi tenang 🤍</button>
+        </div>
+        <p id="tebak-msg" class="text-xs text-pink-400 mt-4 h-4"></p>
+    </div>
+
+    <!-- 3. GOMBALAN 1 -->
+    <div id="page-gombal1" class="hidden z-10 max-w-sm w-full bg-slate-900/90 backdrop-blur-md p-8 rounded-3xl border border-slate-800 shadow-2xl transition-all duration-300 text-center">
+        <div class="text-3xl mb-3">🤭</div>
+        <h2 class="text-sm font-semibold mb-2 text-white">Gombalan Pertama</h2>
+        <p class="text-slate-300 text-xs mb-6 leading-relaxed bg-slate-950/50 p-4 rounded-xl border border-slate-800">
+            "Kamu tuh mirip kayak Wi-Fi rumah. Kadang bikin pusing, tapi kalau lagi nggak ada, rasanya sepi banget dan nggak nyambung ke mana-mana."
+        </p>
+        <button onclick="gantiHalaman('page-gombal1', 'page-gombal2')" class="w-full py-3 bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 border border-blue-500/30 font-medium text-sm rounded-xl transition">
+            Lanjut, jangan protes ya 😆
+        </button>
+    </div>
+
+    <!-- 4. GOMBALAN 2 -->
+    <div id="page-gombal2" class="hidden z-10 max-w-sm w-full bg-slate-900/90 backdrop-blur-md p-8 rounded-3xl border border-slate-800 shadow-2xl transition-all duration-300 text-center">
+        <div class="text-3xl mb-3">✨</div>
+        <h2 class="text-sm font-semibold mb-2 text-white">Gombalan Kedua</h2>
+        <p class="text-slate-300 text-xs mb-6 leading-relaxed bg-slate-950/50 p-4 rounded-xl border border-slate-800">
+            "Bulan sama bintang itu emang indah. Tapi janji deh, walau mendung atau gelap, kamu tetap jadi satu-satunya yang paling terang di pikiran."
+        </p>
+        <button onclick="gantiHalaman('page-gombal2', 'page-gombal3')" class="w-full py-3 bg-pink-600/20 hover:bg-pink-600/30 text-pink-300 border border-pink-500/30 font-medium text-sm rounded-xl transition">
+            Masih ada lagi? Lanjut! 👉
+        </button>
+    </div>
+
+    <!-- 5. GOMBALAN 3 -->
+    <div id="page-gombal3" class="hidden z-10 max-w-sm w-full bg-slate-900/90 backdrop-blur-md p-8 rounded-3xl border border-slate-800 shadow-2xl transition-all duration-300 text-center">
+        <div class="text-3xl mb-3">🤍</div>
+        <h2 class="text-sm font-semibold mb-2 text-white">Gombalan Terakhir</h2>
+        <p class="text-slate-300 text-xs mb-6 leading-relaxed bg-slate-950/50 p-4 rounded-xl border border-slate-800">
+            "Nggak usah jauh-jauh nyari alasan buat senyum. Cukup ingat wajahmu, itu udah lebih dari cukup buat bikin adem."
+        </p>
+        <button onclick="gantiHalaman('page-gombal3', 'page-game')" class="w-full py-3 bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 border border-blue-500/30 font-medium text-sm rounded-xl transition">
+            Mulai Game Romantis 🎮
+        </button>
+    </div>
+
+    <!-- 6. GAME ROMANTIS (Wajib Jawab Sayang) -->
+    <div id="page-game" class="hidden z-10 max-w-sm w-full bg-slate-900/90 backdrop-blur-md p-8 rounded-3xl border border-slate-800 shadow-2xl transition-all duration-300 text-center">
+        <span class="text-xs font-medium text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">Mini Game</span>
+        <h2 class="text-sm font-semibold mt-4 mb-2 text-white">Seberapa sayang kamu ke aku sekarang?</h2>
+        <p class="text-slate-400 text-xs mb-6">Pilih yang jujur ya wkwk.</p>
+        
+        <div class="space-y-3">
+            <button onclick="gagalGame()" class="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl text-xs transition">Biasa aja / Lagi ngambek</button>
+            <button onclick="menangGame()" class="w-full py-2.5 bg-pink-600/20 hover:bg-pink-600/30 text-pink-300 border border-pink-500/30 rounded-xl text-xs font-medium transition">Sayang banget, nggak bisa ilang 🤍</button>
+        </div>
+        <p id="game-msg" class="text-xs text-pink-400 mt-4 h-5"></p>
+    </div>
+
+    <!-- 7. KATA-KATA UTAMA (UCAPAN ULANG TAHUN PILIHAN) -->
+    <div id="page-pesan" class="hidden z-10 max-w-md w-full bg-slate-900/90 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-slate-800 shadow-2xl transition-all duration-300">
+        <div class="flex justify-between items-center mb-4">
+            <span class="text-xs font-semibold text-pink-400 bg-pink-500/10 px-3 py-1 rounded-full border border-pink-500/20">
+                Happy Sweet Seventeen 🤍
+            </span>
+            <span class="text-xs text-slate-500">For You</span>
+        </div>
+
+        <div class="space-y-3 text-slate-300 text-xs sm:text-sm leading-relaxed bg-slate-950/50 p-4 rounded-2xl border border-slate-800/80">
+            <p>
+                Selamat ulang tahun yang ke-17, <strong class="text-pink-400">manusia lucuku</strong>. Terima kasih udah bertahan sejauh ini di tengah semua hal berat yang lagi kamu hadapi.
+            </p>
+            <p>
+                Semoga ke depannya kamu makin kuat, bahagia terus, dan semua cita-citamu tercapai. Aku di sini bakal selalu nemenin langkahmu.
+            </p>
+            <p class="font-medium text-blue-300 pt-1">
+                Sweet seventeen.. sayanggg 😘
+            </p>
+        </div>
+
+        <div class="mt-6 text-center">
+            <p class="text-[11px] text-slate-500">
+                — Manusia yang selalu dukung kamu.
+            </p>
+        </div>
+    </div>
+
+    <!-- JavaScript Urutan -->
+    <script>
+        function gantiHalaman(idLama, idBaru) {
+            const lama = document.getElementById(idLama);
+            const baru = document.getElementById(idBaru);
+
+            lama.classList.add('opacity-0', 'scale-95');
+            setTimeout(() => {
+                lama.classList.add('hidden');
+                baru.classList.remove('hidden');
+                baru.classList.add('opacity-100');
+            }, 250);
+        }
+
+        function salahTebak() {
+            const msg = document.getElementById('tebak-msg');
+            msg.innerText = "Salah pilihanmu, coba pilih yang bawah tuh wkwk 😜";
+        }
+
+        function benerTebak() {
+            const msg = document.getElementById('tebak-msg');
+            msg.innerText = "Nah, pintar! Mantap 💯";
+            setTimeout(() => {
+                gantiHalaman('page-tebak', 'page-gombal1');
+            }, 800);
+        }
+
+        function gagalGame() {
+            const msg = document.getElementById('game-msg');
+            msg.innerText = "Eits, nggak boleh ngambek! Pilih yang bener dong 😜";
+        }
+
+        function menangGame() {
+            const msg = document.getElementById('game-msg');
+            msg.innerText = "Nah gitu dong, lanjut baca pesan ya! 🥳";
+            setTimeout(() => {
+                gantiHalaman('page-game', 'page-pesan');
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
